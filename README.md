@@ -2,4 +2,4 @@
 cd src
 run Cla.py
 
-we provide the pre-trained data here:
+we provide the preprocessed data here:
