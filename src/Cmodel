@@ -306,21 +306,20 @@ class ClassifyModel11585(nn.Module):
         doc_embedding = self.gather_indexes(output, fit_docspace_position)
         doc_embedding = torch.reshape(doc_embedding, [-1, doc_seq_length, token_hidden_size])
 
-        # label update
+
         label_embedding = self.gather_indexes(output, fit_labelspace_position)
         label_embedding = torch.reshape(label_embedding, [-1, self.num_labels, token_hidden_size])
-
+        
+        # label update
         label_embedding = self.GCN3(label_embedding, self.label_adj)
         label_embedding = self.relu1(label_embedding)
-        # label_embedding = self.dropout(label_embedding)
-        # label_embedding = self.GCN4(label_embedding, self.label_adj)
-        # dual GCN update adj
+
+
         A = torch.sigmoid(torch.bmm(self.linear_label1(label_embedding),self.linear_label2(label_embedding).transpose(1,2)))
         A = self.normalize_adj(A)
         d_label_embedding = self.GCN5(label_embedding, A)
         d_label_embedding = self.relu2(d_label_embedding)
-        # d_label_embedding = self.dropout(d_label_embedding)
-        # d_label_embedding = self.GCN6(d_label_embedding, A)
+
         label_embedding = torch.cat((label_embedding,d_label_embedding),-1)
         label_embedding = self.linear(label_embedding).squeeze(-1)
 
@@ -346,7 +345,7 @@ class ClassifyModel11585(nn.Module):
         # label_output = torch.sigmoid(self.linear1(text_embedding))
         label_output = torch.sigmoid(self.linear1(H_enc))
         temp = label_output
-        pred_3956 = self.get_origin_label_yuan(temp, ground_label)
+        pred_3956 = self.get_origin_label(temp, ground_label)
         # from utils import precision_k
         # labels_temp = labels
         # labels_temp = labels_temp.data.cpu().float().detach().numpy()
