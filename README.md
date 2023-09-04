@@ -1,5 +1,6 @@
 # Source code of LACN
-## The main requirements. You may need to download some other requirements depend on your environment
+## The main requirements. 
+## You may need to download some other requirements depending on your environment
 ```
 torch == 1.8.0
 python == 3.7.0
