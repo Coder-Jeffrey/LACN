@@ -18,5 +18,3 @@ you can download this at https://huggingface.co/ or https://pan.quark.cn/s/c529d
 * cd src
 
 * run Cla.py
-
-we provide the preprocessed data here:
