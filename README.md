@@ -14,7 +14,7 @@ Before running the code, you need to download the BERT pre-training model.
 you can download this at https://huggingface.co/ or https://pan.quark.cn/s/c529d057d9d6  ExtractionCode:mrfS
 
 
-
+### run
 * cd src
 
 * run Cla.py
