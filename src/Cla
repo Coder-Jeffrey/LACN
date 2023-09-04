@@ -1,7 +1,7 @@
 import torch
 from Cmodel import ClassifyModel11585
-from Dataloader11585 import load_data
-from Ctrain11585 import train_model, test_model
+from Dataloader import load_data
+from Ctrain import train_model, test_model
 import warnings
 import pickle
 import torch.nn as nn
@@ -16,20 +16,20 @@ def classification(epochs, batch_size, learning_rate, weight_decay):
         ind = i
         print('当前参数G0.{}'.format(ind))
         train_dataloader, test_dataloader, label_adj = load_data(batch_size=batch_size, ind=ind)
-        path = './association11585/merge_id_greedy_0{}.pickle'.format(ind)
+        path = './association/merge_id_greedy_0{}.pickle'.format(ind)
         with open(path, 'rb') as file:
             merge_id = pickle.load(file)
-        # with open('./association11585/merge_id_greedy_02.pickle', 'rb') as file:
+        # with open('./association/merge_id_greedy_02.pickle', 'rb') as file:
         #     merge_id = pickle.load(file)
-        with open('../data/EUR11585/frequent_index.pickle', 'rb') as file:
+        with open('../data/EUR/frequent_index.pickle', 'rb') as file:
             frequent_index = pickle.load(file)
-        with open('../data/EUR11585/frequent_frequency.pickle', 'rb') as file:
+        with open('../data/EUR/frequent_frequency.pickle', 'rb') as file:
             frequent_frequency = pickle.load(file)
-        with open('./association11585/antecedents_s0.001.pickle', 'rb') as file:
+        with open('./association/antecedents_s0.001.pickle', 'rb') as file:
             antecedents = pickle.load(file)
-        with open('./association11585/consequents_s0.001.pickle', 'rb') as file:
+        with open('./association/consequents_s0.001.pickle', 'rb') as file:
             consequents = pickle.load(file)
-        with open('./association11585/confidences_s0.001.pickle', 'rb') as file:
+        with open('./association/confidences_s0.001.pickle', 'rb') as file:
             confidence = pickle.load(file)
 
         num_labels = label_adj.size()[0]
