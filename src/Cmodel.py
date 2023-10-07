@@ -522,7 +522,7 @@ class ClassifyModel11585(nn.Module):
         label_out = np.array(label_out)
         # label_out200 = np.where(label_out200 >= 0.5, 1., 0.)
         label293 = np.zeros((self.batch_size, 293))
-        sim = np.load('association11585/Jaccard_sim.npy')
+        sim = np.load('association/Jaccard_sim.npy')
         for i in range(self.batch_size):
             for j in range(len(self.merge_id)):
                 # for k in self.merge_id[j]:
