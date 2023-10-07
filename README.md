@@ -13,8 +13,7 @@ Before running the code, you need to download the BERT pre-training model.
 
 you can download this at https://huggingface.co/ or https://pan.quark.cn/s/c529d057d9d6  ExtractionCode:mrfS and place it under the src folder.
 
-Additionally, raw_label.npy and testSub_y.npy are needed, we provide them at www cause they are too large. Place them at data/EUR/.
-
+Additionally, raw_label.npy and testSub_y.npy are needed, We compress them into a label_data.zip file cause they are too large. Unzip label_data.zip and place the two files at data/EUR/.
 ### run
 * cd src
 
