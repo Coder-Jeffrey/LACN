@@ -28,11 +28,11 @@ def load_data(batch_size, ind):
     label_adj = gen_adj(adj)
 
     # test_label = np.load('./association/merge_test_y_greedy_260.npy')
-    test_label = np.random.rand(2306, 293)
+    test_label = np.random.rand(2306, 293) # Just for data alignment
     # test_label = np.random.rand(3621, 251)
     # test_label = np.load('../data/EUR/fre_test_y_369.npy')
 
-    ground_train_label = np.load('../data/EUR/raw_label_10925.npy')
+    ground_train_label = np.load('../data/EUR/raw_label.npy')
     # ground_test_label = np.load('../data/EUR/raw_label_3621.npy')
     ground_test_label = np.load('../data/EUR/testSub_y.npy')
     # ground_train_label = np.load('../data/EUR/raw_label_11129_369.npy')
