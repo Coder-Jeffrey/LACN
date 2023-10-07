@@ -4,8 +4,8 @@ import numpy as np
 from utils import generate_adj, gen_A, gen_adj
 
 def load_data(batch_size, ind):
-    # path = 'BertInputG0{}'.format(ind)
-    path = 'subBertInput293'
+    path = 'BertInputG0{}'.format(ind)
+    # path = 'subBertInput293'
     train_input_ids = np.load('../data/EUR/{}/train_input_ids.npy'.format(path))
     train_input_mask = np.load('../data/EUR/{}/train_input_mask.npy'.format(path))
     train_token_type_ids = np.load('../data/EUR/{}/train_token_type_ids.npy'.format(path))
