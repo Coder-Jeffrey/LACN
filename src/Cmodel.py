@@ -564,17 +564,17 @@ class ClassifyModel11585(nn.Module):
             for j in range(len(self.frequent_index)):
                 label3956[i][self.frequent_index[j]] = label293[i][j]
 
-        with open('./association11585/antecedents_s0.0015.pickle', 'rb') as file:
+        with open('./association/antecedents_s0.001.pickle', 'rb') as file:
             antecedents = pickle.load(file)
-        with open('./association11585/consequents_s0.0015.pickle', 'rb') as file:
+        with open('./association/consequents_s0.001.pickle', 'rb') as file:
             consequents = pickle.load(file)
-        with open('./association11585/confidences_s0.0015.pickle', 'rb') as file:
+        with open('./association/confidences_s0.001.pickle', 'rb') as file:
             confidences = pickle.load(file)
 
         # 遍历antecedents和consequents
         for i in range(self.batch_size):
             for index, (antecedent, consequent) in enumerate(zip(antecedents, consequents)):
-                print(index)
+                # print(index)
                 proSum = 0.0
                 for value in antecedent:
                     if label3956[i][value]<0.5:
