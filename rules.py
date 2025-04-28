@@ -23,7 +23,7 @@ for i in range(label.shape[1]):
 
 # 挖掘标签联系
 label_df = pd.DataFrame(label)
-frequent_itemsets = fpgrowth(label_df, min_support=0.0009, use_colnames=True)
+frequent_itemsets = fpgrowth(label_df, min_support=0.001, use_colnames=True)
 rules = association_rules(frequent_itemsets, metric="lift", min_threshold=1)
 # 根据"LHS"和"RHS"列创建一个唯一的标识符，然后使用集合(set)来去除重复规则
 rules['unique_rule'] = rules.apply(lambda row: frozenset([row['antecedents'], row['consequents']]), axis=1)
